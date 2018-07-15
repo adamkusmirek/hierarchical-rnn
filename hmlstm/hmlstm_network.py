@@ -347,8 +347,8 @@ class HMLSTMNetwork(object):
                 }
                 _, _loss = self._session.run(ops, feed_dict)
                 print('loss:', _loss)
-
-        self.save_variables(variable_path)
+        if save_vars_to_disk:
+            self.save_variables(variable_path)
 
     def predict(self, batch, variable_path='./hmlstm_ckpt',
                 return_gradients=False):
